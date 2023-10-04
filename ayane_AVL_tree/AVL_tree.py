@@ -216,15 +216,7 @@ class AVLTree(object):
 
 def main():
 	"""main function"""
-	tree = AVLTree()
-	for _ in range(0, 21):
-		tree.insert(_)
-	tree.out()
-	tree.out_graphical()
-	tree.delete(15)
-	tree.out()
-	tree.out_graphical()
-	tree.delete(99)
+	pass
 
 
 if __name__ == "__main__":
