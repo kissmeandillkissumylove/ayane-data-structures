@@ -55,12 +55,14 @@ class AVLTree(object):
 				node = node.left
 		return
 
-	def insert(self, data: Union[int, float, str]) -> NoReturn:
+	def insert(self, data: Union[int, float, str, list]) -> NoReturn:
 		"""insert new element in the tree. complexity: O(log n)."""
-		if self._root is None:
-			self._root = Node(data)  # no root in the tree
-		else:
-			self._root = self._insert(data, self._root)  # find and insert new node
+		if type(data) == list:
+			for _ in data:
+				if self._root is None:
+					self._root = Node(_)  # no root in the tree
+				else:
+					self._root = self._insert(_, self._root)  # find and insert new node
 
 	def _insert(self, data: Union[int, float, str], node: Node) -> Node:
 		"""helper for insert() method. complexity: O(log n)."""
@@ -212,6 +214,10 @@ class AVLTree(object):
 					nodes.append("S")
 					nodes.append("S")
 			height //= 2
+
+	def get_root(self):
+		"""returns _root. complexity: O(1)."""
+		return self._root
 
 
 def main():
